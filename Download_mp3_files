@@ -1,0 +1,38 @@
+#! /usr/bin/python
+
+###############################################################
+##
+## Listout and download all mp3 songs from a given url
+##
+## Asks the (y/n/q) for each file download
+##
+###############################################################
+
+## -*- coding: utf-8 -*-
+
+import os
+import urllib2
+from BeautifulSoup import BeautifulSoup
+
+url = r"http://tamiltunes.com/old-sad-songs-collection.html"
+
+page_source = urllib2.urlopen(url)
+
+bs = BeautifulSoup(page_source)
+
+obj_coll = bs.findAll("a")
+
+complete_list = [ele.get("href")
+                 for ele in obj_coll
+                 if str(ele.get("href")).endswith(".mp3")]
+
+for each_url in complete_list:
+    do_confirm = raw_input("""Download: {0} ? (y/n/q)""".format(
+                           os.path.split(each_url)[-1]))
+
+    if do_confirm.strip().lower() == "y":
+        os.system("wget {0}".format(each_url))
+
+    if do_confirm.strip().lower() == "q":
+        print "Stopping the Execution..."
+        break
