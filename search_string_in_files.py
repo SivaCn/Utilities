@@ -29,7 +29,7 @@ EXCLUDE_LIST = [".pyc", ".pyo"]
 class Coloured(object):
     """Class to display the Colored Text over the console."""
     def __init__(self):
-        """."""
+        """Initialize various colors."""
         self.HEADER = '\033[95m'
         self.OKBLUE = '\033[94m'
         self.OKGREEN = '\033[92m'
@@ -39,6 +39,7 @@ class Coloured(object):
         self.BOLD = "\\033[1m033[1m"
 
     def disable(self):
+        """Method to Disable the set colors."""
         self.HEADER = ''
         self.OKBLUE = ''
         self.OKGREEN = ''
@@ -47,15 +48,19 @@ class Coloured(object):
         self.ENDC = ''
 
     def infog(self, msg):
+        """."""
         print self.OKGREEN + msg + self.ENDC
 
     def info(self, msg):
+        """."""
         print self.OKBLUE + msg + self.ENDC
 
     def warn(self, msg):
+        """."""
         return self.WARNING + msg + self.ENDC
 
     def err(self, msg):
+        """."""
         print self.FAIL + msg + self.ENDC
 
 
