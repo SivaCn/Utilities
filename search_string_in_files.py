@@ -7,8 +7,7 @@
 
 """ *** String Search Script ***
 A script for searching the strings in a specified directory and its
-sub-directories.
-"""
+sub-directories."""
 
 ## ------ Built-in Imports ------ ##
 import os
@@ -28,7 +27,7 @@ EXCLUDE_LIST = [".pyc", ".pyo"]
 
 
 class Coloured(object):
-    """."""
+    """Class to display the Colored Text over the console."""
     def __init__(self):
         """."""
         self.HEADER = '\033[95m'
