@@ -65,9 +65,9 @@ class Coloured(object):
 
 
 class Search(object):
-    """."""
+    """A Class to search for a string inside any file."""
     def __init__(self, string, wildcard=".py", root=None):
-        """."""
+        """Initialization Block."""
         self.string = string
         self.wildcard = wildcard
         self.root_dir = root
@@ -75,7 +75,7 @@ class Search(object):
         self.color_obj = Coloured()
 
     def __search(self, file_):
-        """."""
+        """Local method/function."""
 
         exclude_file = False
         for ex_item in EXCLUDE_LIST:
@@ -110,7 +110,7 @@ class Search(object):
             print "Error read: {0}".format(file_)
 
     def search(self):
-        """."""
+        """Open function/method will be called on invocation."""
         print
         print "="*80
         print "SEARCHING FOR THE FOLLOWING DETAILS:"
@@ -133,7 +133,7 @@ class Search(object):
         print
 
 def usage():
-    """."""
+    """Display Error on wrong commandline inputs."""
     print """\
     Usage:
         python search_in_files.py -s <search string> [-f ".py"] [-d <dir>]
@@ -141,7 +141,7 @@ def usage():
     sys.exit(1)
 
 def optparser():
-    """."""
+    """Commandline Argument parser."""
     parser = OptionParser()
 
     parser.add_option('-s', '--string', dest="string",  help='String to be searched')
@@ -163,7 +163,7 @@ def optparser():
     return opts
 
 if __name__ == "__main__":
-    """."""
+    """This block of code will be called first."""
     parsed_args = optparser()
 
     obj = Search(parsed_args.string, parsed_args.filetype, parsed_args.directory)
